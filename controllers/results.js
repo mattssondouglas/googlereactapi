@@ -2,7 +2,7 @@
 const express = require('express')
 const router = express.Router()
 // Create POST controller
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
   let results = [
     {
       maintitle: 'JS tutorials',
@@ -50,6 +50,8 @@ router.get('/', (req, res) => {
       ]
     }
   ]
+  results = results.filter(e => e.maintitle.includes(req.body.searchBar))
+  console.log(req.body.searchBar) //HOW TO ACCESS searchBar in search.hbs from here?
   res.render('results', { results })
 })
 // Export module
