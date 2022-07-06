@@ -51,7 +51,7 @@ router.post('/', (req, res) => {
     }
   ]
   results = results.filter(e => e.maintitle.includes(req.body.searchBar))
-  console.log(req.body.searchBar) //HOW TO ACCESS searchBar in search.hbs from here?
+  console.log(req.body.searchBar)
   res.render('results', { results })
 })
 // Export module

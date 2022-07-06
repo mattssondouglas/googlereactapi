@@ -9,22 +9,9 @@
     </nav>
     <div class="mainContent">
       <span class="numResults">{{results.length}} Results</span>
-
-
 			{{#each results as |result|}}
-			<div class="searchResult">
-				<span class="websiteAdress">{{result.url}}</span>
-				<h2 class="websiteLink">
-					<a href="{{result.url}}">{{result.maintitle}}</a>
-				</h2>
-				<p class="websiteDescription">{{result.description}}</p>
-				<ul class="websiteSubLinks">
-					{{#each result.sublinks as |sublink|}}
-					<li>
-						<a href="{{sublink.url}}">{{sublink.title}}</a>
-					</li>
-					{{/each}}
-				</ul>
-			</div>
+			{{>result result=result}}
 			{{/each}}
+
+
 		</div>
