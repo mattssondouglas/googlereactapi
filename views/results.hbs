@@ -8,10 +8,14 @@
       </form>
     </nav>
     <div class="mainContent">
+			{{#if results.length}}
       <span class="numResults">{{results.length}} Results</span>
 			{{#each results as |result|}}
 			{{>result result=result}}
 			{{/each}}
+			{{else}}
+			<span class="numResults">No results for your search.</span>
+			{{/if}}
 		</div>
 
-// do if thing for results and for sublinks
+<!-- // do if thing for results and for sublinks -->

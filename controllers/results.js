@@ -5,7 +5,7 @@ const Results = require('../models/results')
 // Create POST controller
 router.post('/', async (req, res) => {
   let results = await Results.find({
-    description: req.body.searchBar
+    title: req.body.searchBar
   })
   res.render('results', { results })
 })
