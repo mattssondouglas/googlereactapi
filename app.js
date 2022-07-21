@@ -9,6 +9,8 @@ const mongoose = require('mongoose')
 const hbs = require('hbs')
 const hbsUtils = require('hbs-utils')(hbs)
 const methodOverride = require('method-override')
+const cors = require('cors')
+
 require('dotenv').config()
 
 // Build the App
@@ -22,6 +24,7 @@ hbs.registerPartials(__dirname + '/views/partials', err => {})
 hbsUtils.registerWatchedPartials(__dirname + '/views/partials')
 
 // Middleware
+app.use(cors())
 app.use(logger('tiny'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))

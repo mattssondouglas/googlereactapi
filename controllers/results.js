@@ -2,16 +2,13 @@
 const express = require('express')
 const router = express.Router()
 const Results = require('../models/results')
-// Create POST controller
-router.post('/', async (req, res) => {
+// GET CONTROLLER FROM AXIOS REQ FROM REACT
+router.get('/', async (req, res) => {
   let results = await Results.find({
-    $text: { $search: req.body.searchBar }
-    // $or: [
-    //   { description: { $regex: req.body.searchBar, $options: 'i' } },
-    //   { title: { $regex: req.body.searchBar, $options: 'i' } }
-    // ]
+    $text: { $search: req.query.search || '' }
   })
-  res.render('results', { results })
+  console.log(results)
+  res.json(results)
 })
 // Export module
 
